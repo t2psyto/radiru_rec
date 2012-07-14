@@ -96,7 +96,11 @@ def get_parms():
         usage()
         sys.exit(1)
 
-    o, title = opts.pop(0)
+    o, title = ("","")
+    for opt, arg in opts:
+        if opt in ('-t', '--title'):
+            o = opt
+            title = arg        
     channel = argvs.pop(0)
     start_flag = 0
     duration = 0
